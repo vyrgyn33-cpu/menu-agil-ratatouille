@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;600&family=Noto+Serif+SC:wght@700&display=swap');
+/* extra.css — Ajustes mínimos para sumar 5 idiomas y 5 monedas sin cambiar el diseño ni la paleta del prototipo. */
+a.btn { text-decoration: none; }
+.pref-select { appearance: none; -webkit-appearance: none; background: transparent; color: var(--cream); border: 1px solid var(--cream); border-radius: 18px; height: 30px; padding: 0 22px 0 10px; font: 600 9px var(--sans); letter-spacing: 0.08em; cursor: pointer; background-image: linear-gradient(45deg, transparent 50%, var(--cream) 50%), linear-gradient(135deg, var(--cream) 50%, transparent 50%); background-position: calc(100% - 12px) 13px, calc(100% - 8px) 13px; background-size: 4px 4px; background-repeat: no-repeat; }
+.pref-select option { color: var(--coffee); background: var(--cream); }
+.preferences-sheet { max-height: 92dvh; }
+.preference-row .preference-toggle { flex-wrap: wrap; justify-content: flex-end; height: auto; row-gap: 2px; }
+.chips button { line-height: 1.25; }
+.chips button:disabled { cursor: not-allowed; }
+.web-time-grid button.active, .web-service-grid button.active { color: var(--cream); }
+.web-reservation-form .field input { min-height: 44px; }
+.web-footer .staff-link { color: var(--cream); }
+.sheet-content .quantity button { min-height: 38px; }
+.dish-card .btn.small { white-space: nowrap; }
+@media (width >= 700px) and (width <= 1023px) {
+  .web-header-actions .pref-select { padding-left: 7px; padding-right: 18px; font-size: 8px; background-position: calc(100% - 10px) 13px, calc(100% - 6px) 13px; }
+  .web-nav { gap: 6px; }
+  .web-nav button { letter-spacing: 0.04em; font-size: 7.5px; }
+}
+@media (width >= 1024px) and (width <= 1180px) {
+  .web-nav { gap: 12px; }
+  .web-nav button { letter-spacing: 0.08em; }
+}
+/* La barra de navegación inferior queda libre del contenido en celular */
+.screen { padding-bottom: 96px; }
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+
+/* Animaciones solo al cambiar de pantalla, categoría o filtro (evita parpadeos al sumar al pedido) */
+#app.noanim .dish-list, #app.noanim .web-dish-grid, #app.noanim .builder-panel, #app.noanim .gluten-warning, #app.noanim .filter-empty, #app.noanim .bottom-sheet, #app.noanim .web-drawer { animation: none; }
+.hero-frame { padding-top: 78px; }
+.web-filter-row > span { white-space: normal; text-align: right; max-width: 46%; line-height: 1.4; }
+@media (width >= 700px) and (width <= 1023px) { .web-filter-row { flex-wrap: wrap; } .web-filter-row > span { max-width: none; text-align: left; } }
+
+/* ===== Especificación funcional: elementos nuevos ===== */
+.pay-sub { margin: 14px 0 8px; font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--burgundy); }
+.link-btn { background: none; border: 0; padding: 10px 0; min-height: 44px; color: var(--burgundy); text-decoration: underline; font: 600 9px var(--sans, 'Montserrat'), sans-serif; letter-spacing: 0.08em; cursor: pointer; text-align: left; }
+.payment-grid + .link-btn + .payment-grid { margin-top: 4px; }
+.payment-card { position: relative; }
+.rec-badge { position: absolute; top: 6px; right: 6px; font-style: normal; font-size: 7px; letter-spacing: 0.08em; background: #f5e6b8; color: var(--coffee); padding: 2px 6px; border-radius: 10px; }
+.payment-card strong, .payment-card small { overflow-wrap: anywhere; }
+.filter-count { margin: 10px 0 0; font-size: 9px; letter-spacing: 0.06em; color: rgba(43, 30, 26, 0.75); }
+.web-menu-main > .filter-count { margin: 8px 0 14px; }
+.category-tabs button, .web-category-tabs button { white-space: normal; line-height: 1.25; }
+.mini-dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 4px; vertical-align: middle; }
+.edit-link { background: none; border: 0; color: var(--burgundy); text-decoration: underline; font-size: 9px; min-height: 44px; cursor: pointer; padding: 0 6px; }
+.saving { color: var(--veggie, #4f7a3a); font-size: 10px; font-weight: 600; text-align: center; margin: 10px 0 0; }
+.macaron-quantity .quantity { justify-self: end; }
+.macaron-sheet .btn[disabled] { opacity: 0.4; cursor: not-allowed; }
+/* Reservas */
+.segmented { display: flex; flex-wrap: wrap; border: 1px solid var(--burgundy); border-radius: 4px; overflow: hidden; margin: 2px 0 10px; background: var(--card); }
+.segmented button { flex: 1 1 auto; min-height: 44px; padding: 6px 8px; color: var(--burgundy); background: transparent; border: 0; border-right: 1px solid rgba(142, 23, 38, 0.25); font-size: 9px; letter-spacing: 0.08em; text-transform: uppercase; line-height: 1.2; cursor: pointer; }
+.segmented button:last-child { border-right: 0; }
+.segmented button.active { background: var(--burgundy); color: var(--cream); }
+.slot-grid { grid-template-columns: repeat(4, 1fr); }
+@media (width >= 1024px) { .slot-grid { grid-template-columns: repeat(6, 1fr); } }
+.slot-grid button { min-height: 44px; }
+.slot-grid button.unavailable { background: #f3eee6; border-color: rgba(142, 23, 38, 0.2); color: rgba(142, 23, 38, 0.4); cursor: not-allowed; display: flex; flex-direction: column; align-items: center; justify-content: center; line-height: 1.1; }
+.slot-grid button.unavailable small { font-size: 7px; text-decoration: none; }
+.service-grid { grid-template-columns: repeat(3, 1fr); }
+.hours-note { margin: 10px 0 0; font-size: 9px; color: rgba(43, 30, 26, 0.75); }
+.web-reservation-form .hours-note { color: rgba(43, 30, 26, 0.75); }
+/* Sugerencia de moneda al cambiar de idioma */
+.cur-suggest { position: fixed; left: 50%; transform: translateX(-50%); bottom: 88px; z-index: 90; width: min(100% - 28px, 440px); background: var(--cream); border: 2px solid var(--burgundy); padding: 12px 14px; display: grid; gap: 10px; font-size: 11px; line-height: 1.4; color: var(--coffee); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25); }
+.cur-suggest > div { display: flex; gap: 8px; flex-wrap: wrap; }
+.cur-suggest .btn { min-height: 44px; flex: 1 1 auto; }
+@media (width >= 700px) { .cur-suggest { bottom: 24px; } }
+/* Pagos */
+.fake-qr.big { width: 220px; height: 220px; }
+.pay-timer { font-size: 11px; margin: 12px 0; text-align: center; }
+.pay-timer b { font-family: var(--serif, 'Playfair Display'), serif; font-size: 22px; color: var(--burgundy); }
+.pay-scan { text-align: center; font-size: 11px; line-height: 1.5; margin: 10px 0; }
+.pay-scan.zh { font-family: 'Noto Sans SC', 'Montserrat', sans-serif; font-size: 14px; font-weight: 600; }
+.result-actions { display: grid; gap: 10px; }
+.payment-screen .btn, .payment-result .btn { width: 100%; }
+/* Aviso académico */
+.acad-note { margin: 24px 0 8px; padding: 14px; border: 1px solid rgba(142, 23, 38, 0.35); background: var(--card); font-size: 9px; line-height: 1.55; color: rgba(43, 30, 26, 0.85); }
+.acad-note h3 { margin: 0 0 6px; color: var(--burgundy); font: 700 14px var(--serif, 'Playfair Display'), serif; }
+.footer-acad p { font-size: 9px; line-height: 1.55; opacity: 0.9; }
+:lang(zh) .pay-scan, :lang(zh-CN) body { font-family: 'Noto Sans SC', 'Montserrat', sans-serif; }
+:lang(zh-CN) h1, :lang(zh-CN) h2, :lang(zh-CN) .dish-title { font-family: 'Noto Serif SC', 'Playfair Display', serif; }
+:lang(zh-CN) .btn, :lang(zh-CN) .filter-chip, :lang(zh-CN) .eyebrow, :lang(zh-CN) .web-nav button { text-transform: none; letter-spacing: 0; }
+/* Panel de despacho */
+.kitchen-sub { font-size: 10px; margin: 4px 0 0; opacity: 0.85; }
+.order-type { margin: -4px 0 8px; font-size: 9px; letter-spacing: 0.1em; color: rgba(43, 30, 26, 0.7); }
+.order-card.priority { background: #fff9f9; }
+.order-total small { display: block; font-size: 9px; font-weight: 400; margin-top: 2px; }
+.payment-status.paid { background: #d4edda; color: #155724; }
+.payment-status.collect { background: #f5e6b8; color: var(--coffee); }
+.payment-status.verify { background: var(--blue); color: var(--burgundy); }
+.exit-kitchen { text-decoration: none; }
